@@ -1,0 +1,74 @@
+Universidad Rafael Urdaneta
+Sistemas Distribidos
+Ricardo Muchacho Ci 27849052
+
+                     Evaluacion #1
+
+Respuestas Event Loop
+
+test1.js
+
+new promise
+async function
+nextTick 1
+nextTick 2
+nextTick 3
+then 1
+then 2
+microtask 1
+microtask 2
+timeout 1
+timeout 2
+immediate 1
+immediate 2
+
+test2.js
+
+new promise
+async function
+nextTick 1
+nextTick 2
+nextTick 3
+then 1
+then 2
+microtask 1
+microtask 2
+immediate 1
+immediate 2
+timeout 1
+timeout 2
+
+test3.js
+
+new promise
+async function
+then 1
+then 2
+microtask 1
+microtask 2
+nextTick 1
+nextTick 2
+nextTick 3
+immediate 1
+immediate 2
+timeout 1
+timeout 2
+
+Para analizar cada archivo hice un Event Loop con sus fases y fui colocando cada llamada en su fase correspondiente, por ej: las funciones resolve() y foo() llaman directamente y loguean un mensaje, las promesas
+then() van a la face "PROMISE  MICROTASK QEUE", al llamar un setImmediate() este se coloca en la fase "CHECK" del Event Loop, al llamar un proceess.nextTick() se coloca en "NEXT TICK MICROTASK QEUE", y asi con cada llamada hasta terminar.
+
+Despues de analizar todos los archivos note que tienen contenidos muy similares, pero aun asi los resultados son diferentes a la hora de correr los archivos lo que se puede ver en las respuestas, esto es debido a pequeñas diferencias entre ellos.
+
+Test2.js Explicacion
+
+En la imagen "EventLoopImg.png" se puede ver el Event Loop del archivo "test2.js", que bajo la logica fue el unico que logre predecir exitosamente, dado que los otros 2 archivos tenian diferencias que son la razon del porque dan un diferente orden que a simple vista es mas dificil de predecir.
+
+Test1.js Explicacion
+
+El archivo "test2.js" a diferencia de los otros empieza requiriendo el modulo fs y luego llamando a readFile, esto inicia un ciclo I/O donde los setTimeout siempre van antes que los setImmediate, mientras que en "test1.js" los setTimeout no estan dentro de un ciclo I/O, por lo tanto dependen de la velocidad de procesamiento y pueden ir tanto antes o despues del setImmediate.
+
+Test3.js Explicacion
+
+El archivo test1.js y test3.mjs tienen el mismo contenido pero aun asi los resultados son diferentes, se supone que los callbacks hechos por process.nextTick van antes que los hechos por qeueMicrotask, y que los MicroTasks vayan antes que los callbacks en la fase CHECK.
+
+La unica diferencia entre test1 y test3 es la extension del archivo, por lo que concluyo que en el Sistema ECMAScript de modulos se maneja el Event Loop de una manera diferente que en CommonJS

@@ -1,0 +1,41 @@
+Ricardo Muchacho Ci 27849052
+
+Para realizar el proyecto se creo primero la api y db de usuarios, la cual usa JWT tokens para autenticar los usuarios, luego se creo la api de animales con su db que permite un CRUD en los animales en la db siempre y cuando el usuario este autenticado y por ultimo se creo el servidor proxy que redirige los requests a la api de animales.
+
+Puertos y configuraciones usadas:
+
+crear los .env para cada carpeta con las siguientes variables:
+
+PORT
+MONGO_URI   (Preguntar por el URI ya que es de mongo atlas)
+TOKEN_KEY
+
+Instrucciones:
+
+1. Correr el comando npm i en auth/server.js, animals_api/server.js, proxy/proxy.js
+2. Abrir 3 terminales diferentes y correr los 3 servidores
+3. Hacer el request para registrarse y hacer login (http://localhost:5000/register)
+4. Copiar el Token obtenido y pegarlo en x-access-token en los headers para hacer los requests a la api
+5. Hacer los requests al proxy que los redirigira a la api (http://localhost:4000/animals)
+
+El archivo "SisDistrib_Api_requests.postman_collection.json" contiene todos los requests utilizados en Postman.
+
+Los request con curl serian:
+
+Register:
+curl -X POST http://localhost:5000/register -H "Content-Type: application/json" -d '{"username": "jaime", "pass": "123"}'  
+
+Login (copiar token):
+curl -X POST http://localhost:5000/login -H 'Content-Type: application/json' -d '{"username":"jaime","pass":"123"}'
+
+Get Animals:
+curl -H 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjIyMmI0ZjQ4ZWQ5OWYyZmU4ODBmZjgxIiwidXNlcm5hbWUiOiJqYWltZSIsImlhdCI6MTY0NjQ0MTcxNiwiZXhwIjoxNjQ2NDQ4OTE2fQ.FIUXiQG76ciNf5RgTXCGuXJs8b3YJWmi4cWxqec67dg' http://localhost:4000/animals
+
+Post Animal:
+curl -X POST http://localhost:4000/animals -H 'Content-Type: application/json' -H 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjIyMmI0ZjQ4ZWQ5OWYyZmU4ODBmZjgxIiwidXNlcm5hbWUiOiJqYWltZSIsImlhdCI6MTY0NjQ0MTcxNiwiZXhwIjoxNjQ2NDQ4OTE2fQ.FIUXiQG76ciNf5RgTXCGuXJs8b3YJWmi4cWxqec67dg' -d '{"name":"snake"}'
+
+Delete Animal
+curl -X DELETE http://localhost:4000/animals -H 'Content-Type: application/json' -H 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjIyMmI0ZjQ4ZWQ5OWYyZmU4ODBmZjgxIiwidXNlcm5hbWUiOiJqYWltZSIsImlhdCI6MTY0NjQ0MTcxNiwiZXhwIjoxNjQ2NDQ4OTE2fQ.FIUXiQG76ciNf5RgTXCGuXJs8b3YJWmi4cWxqec67dg' -d '{"name":"snake"}'
+
+Update Animal
+curl -X PUT http://localhost:4000/animals -H 'Content-Type: application/json' -H 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjIyMmI0ZjQ4ZWQ5OWYyZmU4ODBmZjgxIiwidXNlcm5hbWUiOiJqYWltZSIsImlhdCI6MTY0NjQ0MTcxNiwiZXhwIjoxNjQ2NDQ4OTE2fQ.FIUXiQG76ciNf5RgTXCGuXJs8b3YJWmi4cWxqec67dg' -d '{"prev_name": "cat","new_name": "bird"}'

@@ -1,0 +1,302 @@
+{
+	"variables": [],
+	"info": {
+		"name": "SisDistrib_Api_requests",
+		"_postman_id": "58ceb8f8-9c4f-3813-6885-60a31c41f036",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5000/registro",
+			"request": {
+				"url": {
+					"raw": "http://localhost:5000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"register"
+					],
+					"query": [
+						{
+							"key": "no",
+							"value": "r",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "ap",
+							"value": "r",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "sx",
+							"value": "masculino",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "ci",
+							"value": "27",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"Josef\",\n\t\"pass\": \"rick\"\n}"
+				},
+				"description": "Post para registrar usuario"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/registro",
+			"request": {
+				"url": {
+					"raw": "http://localhost:5000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "no",
+							"value": "r",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "ap",
+							"value": "r",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "sx",
+							"value": "masculino",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "ci",
+							"value": "27",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"Josef\",\n\t\"pass\": \"rick\"\n}"
+				},
+				"description": "Post para login de usuario"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/registro copy",
+			"request": {
+				"url": {
+					"raw": "http://localhost:5000/auth_test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth_test"
+					],
+					"query": [
+						{
+							"key": "no",
+							"value": "r",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "ap",
+							"value": "r",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "sx",
+							"value": "masculino",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "ci",
+							"value": "27",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjIyMjc2YjFiNzYwMWEyNDY4MGIyM2YyIiwidXNlcm5hbWUiOiJKb3NlZiIsImlhdCI6MTY0NjQyNTgzOSwiZXhwIjoxNjQ2NDMzMDM5fQ.qt_3sqiXshEAs88QCRRuslTALgXiw5RLieOsnKpbf9I",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"alejandroM\",\n\t\"pass\": \"alej\"\n}"
+				},
+				"description": "Post para login de usuario"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/animals",
+			"request": {
+				"url": "http://localhost:4000/animals",
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjIyMjc2YjFiNzYwMWEyNDY4MGIyM2YyIiwidXNlcm5hbWUiOiJKb3NlZiIsImlhdCI6MTY0NjY4NzMzOSwiZXhwIjoxNjQ2Njk0NTM5fQ.mkdf_9H_gO1g-qI68fIUaI-1xkfLqvhJbnQc_tvlnd4",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "get animals de la api"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/animals",
+			"request": {
+				"url": "http://localhost:4000/animals",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjIyMjc2YjFiNzYwMWEyNDY4MGIyM2YyIiwidXNlcm5hbWUiOiJKb3NlZiIsImlhdCI6MTY0NjY4NzMzOSwiZXhwIjoxNjQ2Njk0NTM5fQ.mkdf_9H_gO1g-qI68fIUaI-1xkfLqvhJbnQc_tvlnd4",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"eagle\"\n}"
+				},
+				"description": "Post add animal to api"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/animals",
+			"request": {
+				"url": "http://localhost:4000/animals",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjIyMjc2YjFiNzYwMWEyNDY4MGIyM2YyIiwidXNlcm5hbWUiOiJKb3NlZiIsImlhdCI6MTY0NjY4NzMzOSwiZXhwIjoxNjQ2Njk0NTM5fQ.mkdf_9H_gO1g-qI68fIUaI-1xkfLqvhJbnQc_tvlnd4",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"prev_name\": \"bear\",\n\t\"new_name\": \"snake\"\n}"
+				},
+				"description": "Post add animal to api"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/animals",
+			"request": {
+				"url": "http://localhost:4000/animals",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjIyMjc2YjFiNzYwMWEyNDY4MGIyM2YyIiwidXNlcm5hbWUiOiJKb3NlZiIsImlhdCI6MTY0NjY4NzMzOSwiZXhwIjoxNjQ2Njk0NTM5fQ.mkdf_9H_gO1g-qI68fIUaI-1xkfLqvhJbnQc_tvlnd4",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"eagle\"\n}"
+				},
+				"description": "Post add animal to api"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4000/info",
+			"request": {
+				"url": "http://localhost:4000/info",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "prueba del proxy server"
+			},
+			"response": []
+		}
+	]
+}

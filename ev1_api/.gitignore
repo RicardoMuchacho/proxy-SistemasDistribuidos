@@ -1,0 +1,4 @@
+# Ignora .env y postman_collection.json
+.env
+
+.postman_collection.json
